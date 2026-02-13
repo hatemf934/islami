@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/features/onBorading/view/on_borading.dart';
+import 'package:islami/features/quran/presentation/manager/get_sura_cubit/get_sura_cubit.dart';
 import 'package:islami/main_screen.dart';
 
 void main() {
@@ -9,16 +11,18 @@ void main() {
 class Islami extends StatelessWidget {
   const Islami({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Onboarding.id,
-      routes: {
-        Onboarding.id: (context) => Onboarding(),
-        MainScreen.id: (context) => MainScreen(),
-      },
+    return BlocProvider(
+      create: (context) => GetSuraCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: Onboarding.id,
+        routes: {
+          Onboarding.id: (context) => Onboarding(),
+          MainScreen.id: (context) => MainScreen(),
+        },
+      ),
     );
   }
 }

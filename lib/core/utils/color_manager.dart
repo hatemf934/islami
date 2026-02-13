@@ -8,4 +8,5 @@ class ColorManager {
   static Color transmentColor = Colors.transparent;
   static Color grayColor = Color(0xff707070);
   static Color whiteColor = Colors.white;
+  static Color redAccentColor = Colors.redAccent;
 }

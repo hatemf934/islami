@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
@@ -9,6 +10,7 @@ import 'package:islami/core/utils/styles.dart';
 import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
 import 'package:islami/features/onBorading/view/widget/list_of_page_view.dart';
+import 'package:islami/features/quran/presentation/manager/get_sura_cubit/get_sura_cubit.dart';
 import 'package:islami/main_screen.dart';
 
 class Onboarding extends StatelessWidget {
@@ -37,7 +39,8 @@ class Onboarding extends StatelessWidget {
         ),
       ),
       onDone: () {
-        Navigator.popAndPushNamed(context, MainScreen.id);
+        Navigator.pushNamed(context, MainScreen.id);
+        BlocProvider.of<GetSuraCubit>(context).getAllSuras();
       },
       dotsFlex: 4,
       showBackButton: true,

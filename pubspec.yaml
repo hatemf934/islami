@@ -72,7 +72,11 @@ flutter:
   assets:
     - assets/image/
     - assets/icon_bottom/
-    - assets/files/
+    - assets/files/Azkar/
+    - assets/files/h_files_ordered/
+    - assets/files/Hadeeth/
+    - assets/files/quran_surahs/
+    - assets/files/Suras/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

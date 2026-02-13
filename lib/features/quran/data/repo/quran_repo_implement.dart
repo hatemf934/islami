@@ -9,7 +9,7 @@ import 'package:islami/features/quran/data/repo/quran_repo.dart';
 
 class QuranRepoImplement extends QuranRepo {
   @override
-  Future<Either<Faliure, List<ModelSura>>> getAllSuraData() async {
+  Future<Either<Failure, List<ModelSura>>> getAllSuraData() async {
     try {
       List<dynamic> getSuraAr = await ApiClass().getSuraName(typeOfLang: 'ar');
       List<dynamic> getSuraEng = await ApiClass().getSuraName(
@@ -39,11 +39,9 @@ class QuranRepoImplement extends QuranRepo {
       return right(suras);
     } catch (e) {
       if (e is DioException) {
-        left(ServerFaliure.fromdioexception(e));
+        left(ServerFailure.fromDioException(e));
       }
-      return Left(
-        ServerFaliure(Icons.error, message: e.toString(), statusCode: 0),
-      );
+      return Left(ServerFailure(Icons.error, message: e.toString()));
     }
   }
 }
