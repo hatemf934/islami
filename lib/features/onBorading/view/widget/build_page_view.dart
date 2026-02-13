@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:islami/core/utils/assets_manager.dart';
+import 'package:islami/core/utils/hieght_manager.dart';
+import 'package:islami/core/utils/styles.dart';
 
 PageViewModel buildPageView({
   required String imageTitle,
@@ -8,25 +11,23 @@ PageViewModel buildPageView({
 }) {
   return PageViewModel(
     useScrollView: false,
-    titleWidget: Image.asset("assets/image/Group 31.png"),
+    titleWidget: Image.asset(AssetsManager.titleImage),
     bodyWidget: Column(
       children: [
         Image.asset(imageTitle, scale: 4.4),
-        SizedBox(height: 25),
+        SizedBox(height: HieghtManager.h25),
         Text(
           title,
-          style: TextStyle(
-            fontSize: 25,
-            color: Color(0xffE2BE7F),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Styles.textStyle25.copyWith(fontWeight: FontWeight.bold),
         ),
-        subTitle != null ? SizedBox(height: 30) : SizedBox.shrink(),
+        subTitle != null
+            ? SizedBox(height: HieghtManager.h30)
+            : SizedBox.shrink(),
         subTitle != null
             ? Text(
                 textAlign: TextAlign.center,
                 subTitle,
-                style: TextStyle(fontSize: 18, color: Color(0xffE2BE7F)),
+                style: Styles.textStyle18,
               )
             : SizedBox.shrink(),
       ],

@@ -1,38 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:islami/core/utils/color_manager.dart';
+import 'package:islami/core/utils/hieght_manager.dart';
+import 'package:islami/core/utils/padding_manager.dart';
+import 'package:islami/core/utils/raduis_manager.dart';
+import 'package:islami/core/utils/route_manager.dart';
+import 'package:islami/core/utils/styles.dart';
+import 'package:islami/core/utils/text_manager.dart';
+import 'package:islami/core/utils/width_manager.dart';
 import 'package:islami/features/onBorading/view/widget/list_of_page_view.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
-  static String id = 'on_boarding';
+  static String id = RouteManager.onboardingRoute;
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
-      globalBackgroundColor: Color(0xff202020),
+      globalBackgroundColor: ColorManager.globalBackgroundColor,
       pages: pageViewModel,
       baseBtnStyle: TextButton.styleFrom(
-        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        backgroundColor: Colors.transparent,
-        overlayColor: Colors.transparent,
-        foregroundColor: Color(0xffE2BE7F),
+        textStyle: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+        backgroundColor: ColorManager.transmentColor,
+        overlayColor: ColorManager.transmentColor,
+        foregroundColor: ColorManager.primayColor,
         splashFactory: NoSplash.splashFactory,
       ),
       dotsDecorator: DotsDecorator(
-        size: Size.fromRadius(4),
-        activeSize: const Size(30, 8),
-        activeColor: Color(0xffE2BE7F),
-        color: Color(0xff707070),
-        spacing: const EdgeInsets.symmetric(horizontal: 3.0),
+        size: Size.fromRadius(RaduisManager.raduis4),
+        activeSize: Size(WidthManager.w30, HieghtManager.h8),
+        activeColor: ColorManager.primayColor,
+        color: ColorManager.grayColor,
+        spacing: EdgeInsets.symmetric(horizontal: PaddingManager.p3),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(RaduisManager.raduis25),
         ),
       ),
       onDone: () {},
       dotsFlex: 4,
       showBackButton: true,
-      back: const Text("Back"),
-      next: const Text("Next"),
-      done: const Text("Finish"),
+      back: Text(TextManager.backText),
+      next: Text(TextManager.nextText),
+      done: Text(TextManager.finishText),
     );
   }
 }
