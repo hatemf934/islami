@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/features/quran/data/model/model_sura.dart';
+import 'package:islami/features/quran/presentation/manager/get_recently_sura/get_recently_cubit.dart';
 
 class ListTileSuraItem extends StatelessWidget {
   const ListTileSuraItem({super.key, required this.modelSura});
@@ -11,6 +13,17 @@ class ListTileSuraItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        BlocProvider.of<RecentSuraCubit>(context).addSura(
+          ModelSura(
+            numberOfSura: modelSura.numberOfSura,
+            countAyat: modelSura.countAyat,
+            suraNameEng: modelSura.suraNameEng,
+            suraNameAr: modelSura.suraNameAr,
+            suraContent: modelSura.suraContent,
+          ),
+        );
+      },
       child: ListTile(
         leading: Stack(
           alignment: AlignmentGeometry.center,

@@ -29,4 +29,5 @@ class TextManager {
   static const String suraList = "Suras List";
   static const String mostRecently = "Most Recently";
   static const String verses = "Verses";
+  static const String notRecentluYet = "Not Recently yet";
 }

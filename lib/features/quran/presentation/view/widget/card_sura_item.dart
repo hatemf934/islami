@@ -5,11 +5,13 @@ import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/core/utils/raduis_manager.dart';
 import 'package:islami/core/utils/styles.dart';
+import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
+import 'package:islami/features/quran/data/model/model_sura.dart';
 
 class CardSuraItem extends StatelessWidget {
-  const CardSuraItem({super.key});
-
+  const CardSuraItem({super.key, required this.modelSura});
+  final ModelSura modelSura;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,10 +32,10 @@ class CardSuraItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("alfatha", style: Styles.textStyle24),
-                    Text("الفاتحه", style: Styles.textStyle28),
+                    Text(modelSura.suraNameEng, style: Styles.textStyle24),
+                    Text(modelSura.suraNameAr, style: Styles.textStyle28),
                     Text(
-                      "7 Verses",
+                      "${modelSura.countAyat} ${TextManager.verses}",
                       style: Styles.textStyle18.copyWith(
                         color: ColorManager.globalBackgroundColor,
                       ),

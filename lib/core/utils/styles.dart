@@ -25,4 +25,8 @@ abstract class Styles {
     fontSize: FontSizeManager.font28,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle textStyle30 = TextStyle(
+    color: ColorManager.whiteColor,
+    fontSize: FontSizeManager.font30,
+  );
 }
