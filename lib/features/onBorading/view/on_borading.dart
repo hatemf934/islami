@@ -20,7 +20,7 @@ class Onboarding extends StatelessWidget {
       globalBackgroundColor: ColorManager.globalBackgroundColor,
       pages: pageViewModel,
       baseBtnStyle: TextButton.styleFrom(
-        textStyle: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+        textStyle: Styles.textStyle16,
         backgroundColor: ColorManager.transmentColor,
         overlayColor: ColorManager.transmentColor,
         foregroundColor: ColorManager.primayColor,

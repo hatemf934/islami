@@ -16,4 +16,5 @@ class AssetsManager {
   static const String background3 = "assets/image/Background3.png";
   static const String background4 = "assets/image/Background4.png";
   static const String background5 = "assets/image/Background10.png";
+  static const String mostRecent = "assets/image/img_most_recent.png";
 }
