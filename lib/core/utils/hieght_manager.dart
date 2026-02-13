@@ -6,6 +6,8 @@ class HieghtManager {
   static double h25 = 25;
   static double h30 = 30;
   static double h34 = 34;
+  static double h50 = 50;
+  static double h60 = 60;
   static double h170 = 170;
   static double h180 = 180;
 }

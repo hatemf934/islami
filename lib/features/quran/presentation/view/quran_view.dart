@@ -5,6 +5,7 @@ import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/features/quran/presentation/view/widget/custom_text_feild.dart';
 import 'package:islami/features/quran/presentation/view/widget/most_recently_section.dart';
+import 'package:islami/features/quran/presentation/view/widget/sura_list_section.dart';
 
 class QuranView extends StatelessWidget {
   const QuranView({super.key});
@@ -26,6 +27,8 @@ class QuranView extends StatelessWidget {
               CustomTextFiled(),
               SizedBox(height: HieghtManager.h15),
               MostRecentlySection(),
+              SizedBox(height: HieghtManager.h15),
+              Expanded(child: SuraListSection()),
             ],
           ),
         ),
