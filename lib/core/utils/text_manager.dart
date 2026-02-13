@@ -1,8 +1,8 @@
 class TextManager {
   TextManager._();
-  static String nextText = "Next";
-  static String backText = "Back";
-  static String finishText = "Finish";
+  static const String nextText = "Next";
+  static const String backText = "Back";
+  static const String finishText = "Finish";
   static const String onboardingTitle1 = "Welcome To Islam App";
 
   static const String onboardingTitle2 = "Welcome To Islam";
@@ -20,4 +20,9 @@ class TextManager {
   static const String onboardingTitle5 = "Holy Quran Radio";
   static const String onboardingSubTitle5 =
       "You can listen to the Holy Quran Radio through the application for free and easily";
+  static const String quranNav = "Quran";
+  static const String hadethNav = "Hadeth";
+  static const String sebhaNav = "Sebha";
+  static const String radioNav = "Radio";
+  static const String timeNav = "Time";
 }

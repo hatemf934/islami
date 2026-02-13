@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/features/onBorading/view/on_borading.dart';
+import 'package:islami/main_screen.dart';
 
 void main() {
   runApp(const Islami());
@@ -14,7 +15,10 @@ class Islami extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: Onboarding.id,
-      routes: {Onboarding.id: (context) => Onboarding()},
+      routes: {
+        Onboarding.id: (context) => Onboarding(),
+        MainScreen.id: (context) => MainScreen(),
+      },
     );
   }
 }

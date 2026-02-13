@@ -9,6 +9,7 @@ import 'package:islami/core/utils/styles.dart';
 import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
 import 'package:islami/features/onBorading/view/widget/list_of_page_view.dart';
+import 'package:islami/main_screen.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -35,7 +36,9 @@ class Onboarding extends StatelessWidget {
           borderRadius: BorderRadius.circular(RaduisManager.raduis25),
         ),
       ),
-      onDone: () {},
+      onDone: () {
+        Navigator.popAndPushNamed(context, MainScreen.id);
+      },
       dotsFlex: 4,
       showBackButton: true,
       back: Text(TextManager.backText),
