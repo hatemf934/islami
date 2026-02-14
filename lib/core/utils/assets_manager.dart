@@ -18,4 +18,8 @@ class AssetsManager {
   static const String background5 = "assets/image/Background10.png";
   static const String mostRecent = "assets/image/img_most_recent.png";
   static const String mostNumberFrame = "assets/image/img_sur_number_frame.png";
+  static const String leftConner = "assets/image/img_left_corner.png";
+  static const String rightConner = "assets/image/img_right_corner.png";
+  static const String buttomDecoration =
+      "assets/image/img_bottom_decoration.png";
 }

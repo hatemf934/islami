@@ -7,6 +7,7 @@ import 'package:islami/core/utils/raduis_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
+import 'package:islami/core/widgets/details_content.dart';
 import 'package:islami/features/quran/data/model/model_sura.dart';
 
 class CardSuraItem extends StatelessWidget {
@@ -15,6 +16,18 @@ class CardSuraItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsContent(
+              suraDetails: modelSura.suraContent,
+              title: modelSura.suraNameAr,
+              tilteAppBar: modelSura.suraNameEng,
+            ),
+          ),
+        );
+      },
       child: SizedBox(
         height: HieghtManager.h170,
         width: WidthManager.w360,

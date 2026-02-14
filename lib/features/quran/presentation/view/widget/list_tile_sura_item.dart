@@ -4,6 +4,7 @@ import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 import 'package:islami/core/utils/text_manager.dart';
+import 'package:islami/core/widgets/details_content.dart';
 import 'package:islami/features/quran/data/model/model_sura.dart';
 import 'package:islami/features/quran/presentation/manager/get_recently_sura/get_recently_cubit.dart';
 
@@ -21,6 +22,17 @@ class ListTileSuraItem extends StatelessWidget {
             suraNameEng: modelSura.suraNameEng,
             suraNameAr: modelSura.suraNameAr,
             suraContent: modelSura.suraContent,
+          ),
+        );
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsContent(
+              suraDetails: modelSura.suraContent,
+              title: modelSura.suraNameAr,
+              tilteAppBar: modelSura.suraNameEng,
+            ),
           ),
         );
       },
