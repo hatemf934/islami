@@ -3,9 +3,11 @@ import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/core/utils/styles.dart';
+import 'package:islami/features/hadeth/data/model/hadeth_model.dart';
 
 class DetailsHadethCard extends StatelessWidget {
-  const DetailsHadethCard({super.key});
+  const DetailsHadethCard({super.key, required this.hadethModel});
+  final HadethModel hadethModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +20,7 @@ class DetailsHadethCard extends StatelessWidget {
               Image.asset(AssetsManager.leftCornerHadeth, scale: 1.2),
               Expanded(
                 child: Text(
-                  "hadeth 1",
+                  hadethModel.titleHadeth,
                   textAlign: TextAlign.center,
                   style: Styles.textStyle20.copyWith(
                     color: ColorManager.globalBackgroundColor,
@@ -32,7 +34,7 @@ class DetailsHadethCard extends StatelessWidget {
             child: SingleChildScrollView(
               child: Text(
                 textAlign: TextAlign.center,
-                "قال رسوةل الله صلى الله عليه وسلم: من قال حين يصبح وحين يمسي: سبحان الله وبحمده، مئة مرة، حطت خطاياه وإن كانت مثل زبد البحر",
+                hadethModel.contentHadeth,
                 style: Styles.textStyle18.copyWith(
                   color: ColorManager.globalBackgroundColor,
                 ),

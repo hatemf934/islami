@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/core/error/faliure.dart';
-import 'package:islami/features/data/model/hadeth_model.dart';
-import 'package:islami/features/data/repo/hadeth_repo.dart';
+import 'package:islami/features/hadeth/data/model/hadeth_model.dart';
+import 'package:islami/features/hadeth/data/repo/hadeth_repo.dart';
 
 class HadethRepoImplement extends HadethRepo {
   @override

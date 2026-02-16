@@ -3,12 +3,13 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/raduis_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
+import 'package:islami/features/hadeth/data/model/hadeth_model.dart';
 import 'package:islami/features/hadeth/presentation/views/widgets/details_card_hadeth.dart';
 import 'package:islami/features/hadeth/presentation/views/widgets/image_hadeth_card.dart';
 
 class CardHadeth extends StatelessWidget {
-  const CardHadeth({super.key});
-
+  const CardHadeth({super.key, required this.hadethModel});
+  final HadethModel hadethModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +20,12 @@ class CardHadeth extends StatelessWidget {
           borderRadius: BorderRadius.circular(RaduisManager.raduis25),
           color: ColorManager.primayColor,
         ),
-        child: Stack(children: [ImagesHadethCard(), DetailsHadethCard()]),
+        child: Stack(
+          children: [
+            ImagesHadethCard(),
+            DetailsHadethCard(hadethModel: hadethModel),
+          ],
+        ),
       ),
     );
   }
