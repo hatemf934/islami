@@ -3,6 +3,7 @@ import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/route_manager.dart';
 import 'package:islami/core/widgets/buttom_nav_bar.dart';
+import 'package:islami/features/hadeth/presentation/views/hadeth_view.dart';
 import 'package:islami/features/quran/presentation/view/quran_view.dart';
 
 class MainScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> pages = [QuranView()];
+  List<Widget> pages = [QuranView(), HadethView()];
   List<ImageProvider> images = [
     AssetImage(AssetsManager.background1),
     AssetImage(AssetsManager.background2),
