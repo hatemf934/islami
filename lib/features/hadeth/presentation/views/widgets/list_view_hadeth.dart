@@ -30,7 +30,8 @@ class ListViewHadeth extends StatelessWidget {
               enlargeCenterPage: true,
               viewportFraction: 0.70,
               initialPage: 0,
-              enableInfiniteScroll: false,
+              pauseAutoPlayInFiniteScroll: true,
+              enableInfiniteScroll: true,
               enlargeStrategy: CenterPageEnlargeStrategy.scale,
             ),
           );
