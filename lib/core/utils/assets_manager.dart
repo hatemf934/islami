@@ -22,4 +22,9 @@ class AssetsManager {
   static const String rightConner = "assets/image/img_right_corner.png";
   static const String buttomDecoration =
       "assets/image/img_bottom_decoration.png";
+  static const String mosqueImage = "assets/image/Mosque-02 2.png";
+  static const String hadithCardBackGround =
+      "assets/image/HadithCardBackGround.png";
+  static const String leftCornerHadeth = "assets/image/left_corner.png";
+  static const String rightCornerHadeth = "assets/image/right_corner.png";
 }
