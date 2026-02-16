@@ -39,7 +39,7 @@ class QuranRepoImplement extends QuranRepo {
       return right(suras);
     } catch (e) {
       if (e is DioException) {
-        left(ServerFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
       return Left(ServerFailure(Icons.error, message: e.toString()));
     }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -68,5 +70,36 @@ class ServerFailure extends Failure {
         message = "Received an invalid response ($statusCode).";
     }
     return ServerFailure(Icons.error_outline, message: message);
+  }
+}
+
+class GeneralFailure extends Failure {
+  GeneralFailure(super.icon, {required super.message});
+
+  factory GeneralFailure.fromException(dynamic error) {
+    if (error is TimeoutException) {
+      return GeneralFailure(
+        Icons.timer_off,
+        message: "Request timed out. Please try again later.",
+      );
+    }
+    String errorText = error.toString();
+
+    if (errorText.contains('Unable to load asset')) {
+      return GeneralFailure(
+        Icons.document_scanner_outlined,
+        message: "Sorry, could not access data files.",
+      );
+    } else if (errorText.contains('FileSystemException')) {
+      return GeneralFailure(
+        Icons.storage,
+        message: "Local storage error occurred.",
+      );
+    }
+
+    return GeneralFailure(
+      Icons.warning_amber_rounded,
+      message: "An unexpected error occurred. Please try again.",
+    );
   }
 }

@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/hadeth/data/model/hadeth_model.dart';
@@ -28,10 +26,7 @@ class HadethRepoImplement extends HadethRepo {
       }
       return right(suras);
     } catch (e) {
-      if (e is DioException) {
-        left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(Icons.error, message: e.toString()));
+      return Left(GeneralFailure.fromException(e));
     }
   }
 }
