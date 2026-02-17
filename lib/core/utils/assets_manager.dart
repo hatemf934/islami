@@ -27,4 +27,6 @@ class AssetsManager {
       "assets/image/HadithCardBackGround.png";
   static const String leftCornerHadeth = "assets/image/left_corner.png";
   static const String rightCornerHadeth = "assets/image/right_corner.png";
+  static const String sephaHead = "assets/image/Group 37.png";
+  static const String sephaBody = "assets/image/SebhaBody 1.png";
 }

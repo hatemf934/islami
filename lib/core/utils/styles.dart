@@ -34,4 +34,9 @@ abstract class Styles {
     color: ColorManager.whiteColor,
     fontSize: FontSizeManager.font30,
   );
+  static TextStyle textStyle45 = TextStyle(
+    color: ColorManager.whiteColor,
+    fontSize: FontSizeManager.font45,
+    fontWeight: FontWeight.bold,
+  );
 }

@@ -5,6 +5,7 @@ import 'package:islami/core/utils/route_manager.dart';
 import 'package:islami/core/widgets/buttom_nav_bar.dart';
 import 'package:islami/features/hadeth/presentation/views/hadeth_view.dart';
 import 'package:islami/features/quran/presentation/view/quran_view.dart';
+import 'package:islami/features/sepha/presentation/view/page_view_sepha.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> pages = [QuranView(), HadethView()];
+  List<Widget> pages = [QuranView(), HadethView(), PageViewSepha()];
   List<ImageProvider> images = [
     AssetImage(AssetsManager.background1),
     AssetImage(AssetsManager.background2),
