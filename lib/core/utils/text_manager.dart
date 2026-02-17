@@ -24,6 +24,7 @@ class TextManager {
   static const String hadethNav = "Hadeth";
   static const String sebhaNav = "Sebha";
   static const String radioNav = "Radio";
+  static const String recitersNav = "Reciters";
   static const String timeNav = "Time";
   static const String suraName = "Sura Name";
   static const String suraList = "Suras List";
