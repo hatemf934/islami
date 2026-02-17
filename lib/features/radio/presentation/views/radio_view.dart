@@ -3,6 +3,7 @@ import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/features/radio/presentation/views/widgets/button_radio_section.dart';
+import 'package:islami/features/radio/presentation/views/widgets/list_view_radio_section.dart';
 
 class RadioView extends StatefulWidget {
   const RadioView({super.key});
@@ -25,6 +26,7 @@ class _RadioViewState extends State<RadioView> {
             ),
           ),
           ButtonRadioSection(),
+          Expanded(child: ListViewRadioSection()),
         ],
       ),
     );
