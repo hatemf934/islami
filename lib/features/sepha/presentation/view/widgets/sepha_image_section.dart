@@ -7,9 +7,32 @@ import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 import 'package:islami/features/sepha/presentation/manager/sepha_cubit/sepha_cubit.dart';
 
-class SephaImageSection extends StatelessWidget {
+class SephaImageSection extends StatefulWidget {
   const SephaImageSection({super.key, required this.textSepha});
   final String textSepha;
+
+  @override
+  State<SephaImageSection> createState() => _SephaImageSectionState();
+}
+
+class _SephaImageSectionState extends State<SephaImageSection>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  @override
+  void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,7 +41,16 @@ class SephaImageSection extends StatelessWidget {
         Column(
           children: [
             Image.asset(AssetsManager.sephaHead, scale: 4),
-            Image.asset(AssetsManager.sephaBody),
+            AnimatedBuilder(
+              animation: animationController,
+              builder: (context, child) {
+                return Transform.rotate(
+                  angle: animationController.value * 0.2,
+                  child: child,
+                );
+              },
+              child: Image.asset(AssetsManager.sephaBody),
+            ),
           ],
         ),
 
@@ -28,8 +60,9 @@ class SephaImageSection extends StatelessWidget {
             TextButton(
               onPressed: () {
                 BlocProvider.of<SephaCubit>(context).numberOfSepha();
+                animationController.forward(from: 0);
               },
-              child: Text(textSepha, style: Styles.textStyle45),
+              child: Text(widget.textSepha, style: Styles.textStyle45),
             ),
             BlocBuilder<SephaCubit, SephaState>(
               builder: (context, state) {
