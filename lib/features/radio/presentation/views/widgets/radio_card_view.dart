@@ -3,12 +3,13 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/core/utils/raduis_manager.dart';
+import 'package:islami/features/radio/data/model/parent_model.dart';
 import 'package:islami/features/radio/presentation/views/widgets/button_card_radio.dart';
 import 'package:islami/features/radio/presentation/views/widgets/image_card_radio.dart';
 
 class RadioCardView extends StatefulWidget {
-  const RadioCardView({super.key});
-
+  const RadioCardView({super.key, required this.parentModel});
+  final ParentModel parentModel;
   @override
   State<RadioCardView> createState() => _RadioCardViewState();
 }
@@ -30,6 +31,7 @@ class _RadioCardViewState extends State<RadioCardView> {
           children: [
             ImageCardRadio(isButton: isButton),
             ButtonCardRadio(
+              parentModel: widget.parentModel,
               isButton: isButton,
               isPlaying: isPlaying,
               onPlayTap: () {

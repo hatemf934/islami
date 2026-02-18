@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
+import 'package:islami/features/radio/presentation/manager/radio_cubit/radio_cubit.dart';
 import 'package:islami/features/radio/presentation/manager/radio_or_reciters_cubit/radio_or_reciters_cubit.dart';
+import 'package:islami/features/radio/presentation/manager/reciters_cubit/reciters_cubit.dart';
 import 'package:islami/features/radio/presentation/views/widgets/button_radio_section.dart';
 import 'package:islami/features/radio/presentation/views/widgets/list_view_radio_section.dart';
 
@@ -22,6 +24,8 @@ class _RadioViewState extends State<RadioView> {
         BlocProvider(
           create: (context) => RadioOrRecitersCubit()..swapToRadio(),
         ),
+        BlocProvider(create: (context) => RadioCubit()..getRadio()),
+        BlocProvider(create: (context) => RecitersCubit()),
       ],
       child: Scaffold(
         backgroundColor: ColorManager.transmentColor,

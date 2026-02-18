@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/styles.dart';
+import 'package:islami/features/radio/data/model/parent_model.dart';
 import 'package:islami/features/radio/presentation/manager/radio_or_reciters_cubit/radio_or_reciters_cubit.dart';
 import 'package:islami/features/radio/presentation/views/widgets/icon_button_sound.dart';
 
@@ -10,13 +11,14 @@ class ButtonCardRadio extends StatelessWidget {
   final bool isPlaying;
   final VoidCallback onPlayTap;
   final VoidCallback onVolumeTap;
-
+  final ParentModel parentModel;
   const ButtonCardRadio({
     super.key,
     required this.isButton,
     required this.isPlaying,
     required this.onPlayTap,
     required this.onVolumeTap,
+    required this.parentModel,
   });
 
   @override
@@ -25,7 +27,7 @@ class ButtonCardRadio extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
-          "radio yasser",
+          parentModel.name,
           style: Styles.textStyle24.copyWith(
             color: ColorManager.globalBackgroundColor,
           ),
