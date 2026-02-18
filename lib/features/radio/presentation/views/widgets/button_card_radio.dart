@@ -4,18 +4,15 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 import 'package:islami/features/radio/data/model/parent_model.dart';
 import 'package:islami/features/radio/presentation/manager/radio_or_reciters_cubit/radio_or_reciters_cubit.dart';
-import 'package:islami/features/radio/presentation/views/widgets/icon_button_sound.dart';
+import 'package:islami/features/radio/presentation/views/widgets/paly_sound_reciters_button_changes.dart';
+import 'package:islami/features/radio/presentation/views/widgets/play_sound_button_changes.dart';
 
 class ButtonCardRadio extends StatelessWidget {
-  final bool isButton;
-  final bool isPlaying;
   final VoidCallback onPlayTap;
   final VoidCallback onVolumeTap;
   final ParentModel parentModel;
   const ButtonCardRadio({
     super.key,
-    required this.isButton,
-    required this.isPlaying,
     required this.onPlayTap,
     required this.onVolumeTap,
     required this.parentModel,
@@ -35,38 +32,8 @@ class ButtonCardRadio extends StatelessWidget {
         BlocBuilder<RadioOrRecitersCubit, RadioOrRecitersState>(
           builder: (context, state) {
             return state is RadioState
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButtonSound(
-                        onPressed: onPlayTap,
-                        iconData: isButton ? Icons.play_arrow : Icons.pause,
-                      ),
-                      IconButtonSound(
-                        onPressed: onVolumeTap,
-                        iconData: isPlaying
-                            ? Icons.volume_off
-                            : Icons.volume_up,
-                      ),
-                    ],
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButtonSound(
-                        onPressed: () {},
-                        iconData: Icons.skip_previous,
-                      ),
-                      IconButtonSound(
-                        onPressed: onPlayTap,
-                        iconData: isButton ? Icons.play_arrow : Icons.pause,
-                      ),
-                      IconButtonSound(
-                        onPressed: () {},
-                        iconData: Icons.skip_next,
-                      ),
-                    ],
-                  );
+                ? PlaySoundButtonChanges(parentModel: parentModel)
+                : PlaySoundRecitersButtonChanges(parentModel: parentModel);
           },
         ),
       ],

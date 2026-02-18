@@ -1,6 +1,5 @@
 part of 'play_reciters_cubit.dart';
 
-@immutable
 sealed class PlayRecitersState {}
 
 final class PlayRecitersInitial extends PlayRecitersState {}

@@ -29,11 +29,9 @@ class _RadioCardViewState extends State<RadioCardView> {
         ),
         child: Stack(
           children: [
-            ImageCardRadio(isButton: isButton),
+            ImageCardRadio(parentModel: widget.parentModel),
             ButtonCardRadio(
               parentModel: widget.parentModel,
-              isButton: isButton,
-              isPlaying: isPlaying,
               onPlayTap: () {
                 setState(() {
                   isButton = !isButton;

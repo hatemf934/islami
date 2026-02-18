@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:meta/meta.dart';
 
 part 'play_reciters_state.dart';
 
@@ -32,8 +31,23 @@ class PlayRecitersCubit extends Cubit<PlayRecitersState> {
     emit(PlayRecitersInitial());
   }
 
-  void next() => player.seekToNext();
-  void previous() => player.seekToPrevious();
+  void next() {
+    if (player.hasNext) {
+      player.seekToNext();
+    } else {
+      player.seek(Duration.zero, index: 0);
+    }
+  }
+
+  void previous() {
+    final currentIndex = player.currentIndex ?? 0;
+    if (currentIndex > 0) {
+      player.seek(Duration.zero, index: currentIndex - 1);
+    } else {
+      final lastIndex = (player.sequence.length) - 1;
+      player.seek(Duration.zero, index: lastIndex);
+    }
+  }
 
   @override
   Future<void> close() {
