@@ -7,6 +7,11 @@ abstract class Styles {
     color: ColorManager.primayColor,
     fontSize: FontSizeManager.font18,
   );
+  static TextStyle textStyle1white8 = TextStyle(
+    color: ColorManager.whiteColor,
+    fontSize: FontSizeManager.font18,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle textStyle16 = TextStyle(
     color: ColorManager.primayColor,
     fontSize: FontSizeManager.font16,

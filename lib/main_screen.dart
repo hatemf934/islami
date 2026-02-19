@@ -7,6 +7,7 @@ import 'package:islami/features/hadeth/presentation/views/hadeth_view.dart';
 import 'package:islami/features/quran/presentation/view/quran_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
 import 'package:islami/features/sepha/presentation/view/page_view_sepha.dart';
+import 'package:islami/features/time/presentation/views/time_view.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -21,6 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     HadethView(),
     PageViewSepha(),
     RadioView(),
+    TimeView(),
   ];
   List<ImageProvider> images = [
     AssetImage(AssetsManager.background1),

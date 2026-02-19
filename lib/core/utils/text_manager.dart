@@ -30,6 +30,10 @@ class TextManager {
   static const String suraList = "Suras List";
   static const String mostRecently = "Most Recently";
   static const String verses = "Verses";
+  static const String prayTime = "Pray Time";
+  static const String azkar = "Askar";
+  static const String nextPray = "Next Pray - ";
+
   static const String notRecentluYet = "Not Recently yet";
   static const String titleSubhanAllah = "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىٰ";
   static const String azkarSubhanAllah = "سُبْحَانَ اللَّهِ";

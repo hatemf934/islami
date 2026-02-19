@@ -9,4 +9,6 @@ class ColorManager {
   static Color grayColor = Color(0xff707070);
   static Color whiteColor = Colors.white;
   static Color redAccentColor = Colors.redAccent;
+  static Color deepCamelColor = Color(0xff856B3F);
+  static Color inkBlueColor = Color.fromARGB(103, 9, 9, 50);
 }

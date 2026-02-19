@@ -32,4 +32,5 @@ class AssetsManager {
   static const String maskRadio = "assets/image/Mask group.png";
   static const String playingRadio =
       "assets/image/first_image_cropped_even_more.png";
+  static const String timeContaier = "assets/image/Group 10.svg";
 }
