@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:islami/constant.dart';
 import 'package:islami/core/utils/assets_manager.dart';
+import 'package:islami/core/utils/color_manager.dart';
+import 'package:islami/core/utils/get_now_pray.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
+import 'package:islami/features/time/presentation/views/manager/datapray/date_pray_cubit.dart';
 import 'package:islami/features/time/presentation/views/widgets/custom_container_date.dart';
 import 'package:islami/features/time/presentation/views/widgets/custom_container_pray_time.dart';
 
@@ -15,16 +20,37 @@ class SectionPrayTime extends StatelessWidget {
       children: [
         SizedBox(height: HieghtManager.h20),
         Center(
-          child: Stack(
-            children: [
-              CustomContainerDate(),
-              SvgPicture.asset(AssetsManager.timeContaier),
-              Positioned(
-                left: PaddingManager.p40,
-                right: PaddingManager.p40,
-                child: CustomContanierPrayTime(nextPray: "nextPray"),
-              ),
-            ],
+          child: BlocBuilder<DatePrayCubit, DatePrayState>(
+            builder: (context, state) {
+              if (state is DatePrayLoading) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: ColorManager.primayColor,
+                  ),
+                );
+              } else if (state is DatePraySucsses) {
+                String nextPray = getRemainingTime(
+                  state.timingModel[0].timing,
+                  prayNames,
+                );
+                return Stack(
+                  children: [
+                    CustomContainerDate(timeModel: state.timeModel),
+                    SvgPicture.asset(AssetsManager.timeContaier),
+                    Positioned(
+                      left: PaddingManager.p40,
+                      right: PaddingManager.p40,
+                      child: CustomContanierPrayTime(
+                        timeModel: state.timeModel,
+                        nextPray: nextPray,
+                      ),
+                    ),
+                  ],
+                );
+              } else {
+                return SizedBox.shrink();
+              }
+            },
           ),
         ),
       ],
