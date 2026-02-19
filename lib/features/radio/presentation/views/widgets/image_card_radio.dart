@@ -5,10 +5,38 @@ import 'package:islami/features/radio/data/model/parent_model.dart';
 import 'package:islami/features/radio/presentation/manager/play_reciters_cubit/play_reciters_cubit.dart';
 import 'package:islami/features/radio/presentation/manager/play_sound_cubit/play_sound_cubit.dart';
 
-class ImageCardRadio extends StatelessWidget {
+class ImageCardRadio extends StatefulWidget {
   const ImageCardRadio({super.key, required this.parentModel});
 
   final ParentModel parentModel;
+
+  @override
+  State<ImageCardRadio> createState() => _ImageCardRadioState();
+}
+
+class _ImageCardRadioState extends State<ImageCardRadio>
+    with SingleTickerProviderStateMixin {
+  late Animation<Offset> slidingAnimation;
+  late AnimationController animationController;
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.05), end: Offset.zero).animate(
+          CurvedAnimation(parent: animationController, curve: Curves.easeInOut),
+        );
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,17 +48,26 @@ class ImageCardRadio extends StatelessWidget {
               builder: (context, radioState) {
                 bool isThisPlaying =
                     (radioState is PlaySound &&
-                        radioState.url == parentModel.url) ||
+                        radioState.url == widget.parentModel.url) ||
                     (recitersState is PlayReciters &&
                         recitersState.isPlaying &&
-                        parentModel.url ==
+                        widget.parentModel.url ==
                             context.read<PlayRecitersCubit>().currentUrl);
-                return Image.asset(
-                  isThisPlaying
-                      ? AssetsManager.playingRadio
-                      : AssetsManager.maskRadio,
-                  width: double.infinity,
-                  fit: BoxFit.fitWidth,
+
+                if (isThisPlaying) {
+                  animationController.repeat(reverse: true);
+                } else {
+                  animationController.stop();
+                }
+                return SlideTransition(
+                  position: slidingAnimation,
+                  child: Image.asset(
+                    isThisPlaying
+                        ? AssetsManager.playingRadio
+                        : AssetsManager.maskRadio,
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                  ),
                 );
               },
             );
