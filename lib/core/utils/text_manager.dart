@@ -47,4 +47,8 @@ class TextManager {
   static const String titleSaliAlaNaby =
       "إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ";
   static const String azkarSaliAlaNaby = "صَلِّ عَلَى مُحَمَّدٍ";
+  static const String eveningAzkarAr = "اذكار المساء";
+  static const String eveningAzkarEn = "Evening Azkar";
+  static const String morningAzkarAr = "اذكار الصباح";
+  static const String morningAzkarEn = "Morning Azkar";
 }

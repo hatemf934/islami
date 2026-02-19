@@ -29,23 +29,28 @@ class SectionPrayTime extends StatelessWidget {
                   ),
                 );
               } else if (state is DatePraySucsses) {
-                String nextPray = getRemainingTime(
-                  state.timingModel[0].timing,
-                  prayNames,
-                );
-                return Stack(
-                  children: [
-                    CustomContainerDate(timeModel: state.timeModel),
-                    SvgPicture.asset(AssetsManager.timeContaier),
-                    Positioned(
-                      left: PaddingManager.p40,
-                      right: PaddingManager.p40,
-                      child: CustomContanierPrayTime(
-                        timeModel: state.timeModel,
-                        nextPray: nextPray,
-                      ),
-                    ),
-                  ],
+                return FutureBuilder<String>(
+                  future: getRemainingTime(
+                    state.timingModel[0].timing,
+                    prayNames,
+                  ),
+                  builder: (context, snapshot) {
+                    String remainingTime = snapshot.data ?? "--:--";
+                    return Stack(
+                      children: [
+                        CustomContainerDate(timeModel: state.timeModel),
+                        SvgPicture.asset(AssetsManager.timeContaier),
+                        Positioned(
+                          left: PaddingManager.p40,
+                          right: PaddingManager.p40,
+                          child: CustomContanierPrayTime(
+                            timeModel: state.timeModel,
+                            nextPray: remainingTime,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                 );
               } else {
                 return SizedBox.shrink();

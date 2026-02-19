@@ -13,6 +13,7 @@ class HieghtManager {
   static double h140 = 140;
   static double h170 = 170;
   static double h180 = 180;
+  static double h260 = 260;
   static double h300 = 300;
   static double h650 = 650;
 }

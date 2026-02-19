@@ -5,6 +5,7 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/features/time/presentation/views/manager/datapray/date_pray_cubit.dart';
+import 'package:islami/features/time/presentation/views/widgets/section_azkar.dart';
 import 'package:islami/features/time/presentation/views/widgets/section_pray_time.dart';
 
 class TimeView extends StatelessWidget {
@@ -28,6 +29,8 @@ class TimeView extends StatelessWidget {
                 ),
               ),
               SectionPrayTime(),
+              SizedBox(height: HieghtManager.h20),
+              SectionAzkar(),
             ],
           ),
         ),

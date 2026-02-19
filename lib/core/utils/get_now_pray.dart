@@ -1,3 +1,5 @@
+import 'package:ntp/ntp.dart';
+
 int getInitialPage(Map<String, dynamic> timings, List<String> prayNames) {
   DateTime now = DateTime.now();
   int currentMinutes = now.hour * 60 + now.minute;
@@ -15,8 +17,11 @@ int getInitialPage(Map<String, dynamic> timings, List<String> prayNames) {
   return 0;
 }
 
-String getRemainingTime(Map<String, dynamic> timings, List<String> prayNames) {
-  final now = DateTime.now().toLocal();
+Future<String> getRemainingTime(
+  Map<String, dynamic> timings,
+  List<String> prayNames,
+) async {
+  final now = await NTP.now();
   int nextIndex = prayNames.indexWhere((name) {
     final timeParts = timings[name].split(':');
     final prayTime = DateTime(

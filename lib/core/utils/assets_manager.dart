@@ -33,4 +33,9 @@ class AssetsManager {
   static const String playingRadio =
       "assets/image/first_image_cropped_even_more.png";
   static const String timeContaier = "assets/image/Group 10.svg";
+  static const String eveningAzkarIcon = "assets/image/bell-icon 1.png";
+  static const String morningAzkarIcon =
+      "assets/image/comment-bubble-icon 1.png";
+  static const String eveningAzkarPath = "assets/files/Azkar/EveningAzkar.txt";
+  static const String morningAzkarPath = "assets/files/Azkar/MorningAzkar.txt";
 }

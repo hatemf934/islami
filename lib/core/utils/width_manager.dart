@@ -5,6 +5,7 @@ class WidthManager {
   static double w30 = 30;
   static double w59 = 59;
   static double w110 = 110;
+  static double w180 = 180;
   static double w360 = 360;
   static double w390 = 390;
 }

@@ -20,7 +20,7 @@ class BodyOfCardPrayTime extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(prayName, style: Styles.textStyle1white8),
+            Text(prayName, style: Styles.textStyle1white18),
             Text(
               timingModel.timing[prayName],
               style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
@@ -29,7 +29,7 @@ class BodyOfCardPrayTime extends StatelessWidget {
               DateFormat(
                 "a",
               ).format(DateFormat("HH:mm").parse(timingModel.timing[prayName])),
-              style: Styles.textStyle1white8,
+              style: Styles.textStyle1white18,
             ),
           ],
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/utils/color_manager.dart';
+import 'package:islami/core/utils/styles.dart';
 
 class Body0fCardAskar extends StatelessWidget {
   const Body0fCardAskar({
@@ -16,11 +18,7 @@ class Body0fCardAskar extends StatelessWidget {
         Image.asset(imageAskar),
         Text(
           nameAskar,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
+          style: Styles.textStyle20.copyWith(color: ColorManager.whiteColor),
         ),
       ],
     );
