@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/features/quran/presentation/manager/get_sura_cubit/get_sura_cubit.dart';
-import 'package:islami/features/quran/presentation/view/widget/custom_failure.dart';
+import 'package:islami/core/widgets/custom_failure.dart';
 import 'package:islami/features/quran/presentation/view/widget/list_tile_sura_item.dart';
 
 class ListViewSura extends StatelessWidget {
@@ -28,7 +28,7 @@ class ListViewSura extends StatelessWidget {
                 indent: HieghtManager.h50,
               );
             },
-            itemCount: 20,
+            itemCount: state.modelSura.length,
           );
         } else if (state is GetSuraFailure) {
           return Center(

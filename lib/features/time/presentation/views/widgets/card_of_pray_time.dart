@@ -28,7 +28,7 @@ class CardOfPrayTime extends StatelessWidget {
             ColorManager.primayColor,
           ],
         ),
-        borderRadius: BorderRadius.circular(RaduisManager.raduis25),
+        borderRadius: BorderRadius.circular(RaduisManager.raduis20),
       ),
       child: BodyOfCardPrayTime(prayName: prayName, timingModel: timingModel),
     );

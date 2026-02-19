@@ -17,11 +17,11 @@ class CustomContanierPrayTime extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: HieghtManager.h15),
+        SizedBox(height: HieghtManager.h10),
         ColumnTitleDayPray(timeModel: timeModel),
         SizedBox(height: HieghtManager.h30),
         ListViewCardPray(),
-        SizedBox(height: HieghtManager.h40),
+        SizedBox(height: HieghtManager.h30),
         RowNextPray(nextPray: nextPray),
         SizedBox(height: HieghtManager.h15),
       ],

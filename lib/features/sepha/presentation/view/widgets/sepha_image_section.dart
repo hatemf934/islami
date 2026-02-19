@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
-import 'package:islami/core/utils/font_size_manager.dart';
+import 'package:islami/core/utils/font_icon_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/styles.dart';
+import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/features/sepha/presentation/manager/sepha_cubit/sepha_cubit.dart';
 
 class SephaImageSection extends StatefulWidget {
@@ -68,7 +69,7 @@ class _SephaImageSectionState extends State<SephaImageSection>
               builder: (context, state) {
                 return state is SephaOnTap
                     ? Text("${state.numberOfSepha}", style: Styles.textStyle45)
-                    : Text("0", style: Styles.textStyle45);
+                    : Text(TextManager.zeroText, style: Styles.textStyle45);
               },
             ),
             BlocBuilder<SephaCubit, SephaState>(
@@ -81,7 +82,7 @@ class _SephaImageSectionState extends State<SephaImageSection>
                         icon: Icon(
                           Icons.restart_alt,
                           color: ColorManager.primayColor,
-                          size: FontSizeManager.font45,
+                          size: FontIconManager.icon45,
                         ),
                       )
                     : Container();

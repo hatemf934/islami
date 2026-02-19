@@ -4,6 +4,8 @@ import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
+import 'package:islami/core/utils/styles.dart';
+import 'package:islami/core/utils/text_manager.dart';
 import 'package:islami/features/quran/presentation/manager/get_recently_sura/get_recently_cubit.dart';
 import 'package:islami/features/quran/presentation/manager/search_sura/search_sura_cubit.dart';
 import 'package:islami/features/quran/presentation/view/widget/custom_text_feild.dart';
@@ -49,8 +51,8 @@ class QuranView extends StatelessWidget {
                       } else if (state is SearchSuraNoResult) {
                         return Center(
                           child: Text(
-                            "No Result Found",
-                            style: TextStyle(color: Colors.white, fontSize: 30),
+                            TextManager.noResultFound,
+                            style: Styles.textStyle30,
                           ),
                         );
                       } else if (state is SearchSuraSearch) {

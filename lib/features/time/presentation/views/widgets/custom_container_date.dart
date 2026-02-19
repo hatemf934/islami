@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/core/utils/color_manager.dart';
-import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
 import 'package:islami/core/utils/raduis_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
@@ -14,7 +14,7 @@ class CustomContainerDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: HieghtManager.h300,
+      height: 285.h,
       width: WidthManager.w390,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(RaduisManager.raduis30),

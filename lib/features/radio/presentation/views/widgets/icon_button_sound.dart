@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/utils/color_manager.dart';
+import 'package:islami/core/utils/font_icon_manager.dart';
 
 class IconButtonSound extends StatelessWidget {
   const IconButtonSound({
@@ -12,7 +14,11 @@ class IconButtonSound extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: Icon(iconData, color: Color(0xff202020), size: 40),
+      icon: Icon(
+        iconData,
+        color: ColorManager.globalBackgroundColor,
+        size: FontIconManager.icon30,
+      ),
     );
   }
 }

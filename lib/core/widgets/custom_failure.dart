@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/utils/color_manager.dart';
-import 'package:islami/core/utils/font_size_manager.dart';
+import 'package:islami/core/utils/font_icon_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/styles.dart';
 
@@ -21,7 +21,7 @@ class CustomFailue extends StatelessWidget {
       children: [
         Icon(
           iconData,
-          size: FontSizeManager.font70,
+          size: FontIconManager.icon70,
           color: ColorManager.redAccentColor,
         ),
         SizedBox(height: HieghtManager.h15),

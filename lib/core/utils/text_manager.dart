@@ -33,6 +33,8 @@ class TextManager {
   static const String prayTime = "Pray Time";
   static const String azkar = "Askar";
   static const String nextPray = "Next Pray - ";
+  static const String noResultFound = "No Result Found";
+  static const String zeroText = "0";
 
   static const String notRecentluYet = "Not Recently yet";
   static const String titleSubhanAllah = "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىٰ";

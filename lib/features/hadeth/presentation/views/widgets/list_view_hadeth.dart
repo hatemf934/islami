@@ -5,7 +5,7 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/features/hadeth/presentation/views/manager/get_hadeth/get_hadeth_cubit.dart';
 import 'package:islami/features/hadeth/presentation/views/widgets/card_hadeth.dart';
-import 'package:islami/features/quran/presentation/view/widget/custom_failure.dart';
+import 'package:islami/core/widgets/custom_failure.dart';
 
 class ListViewHadeth extends StatelessWidget {
   const ListViewHadeth({super.key});

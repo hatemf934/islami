@@ -43,6 +43,7 @@ class SectionPrayTime extends StatelessWidget {
                         Positioned(
                           left: PaddingManager.p40,
                           right: PaddingManager.p40,
+
                           child: CustomContanierPrayTime(
                             timeModel: state.timeModel,
                             nextPray: remainingTime,
