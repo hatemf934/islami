@@ -53,7 +53,7 @@ Islami App is a modern Flutter application designed to help you stay connected t
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/hatemf934/islami
+https://github.com/hatemf934/islami
 ```
 
 2. Navigate to the project directory:
