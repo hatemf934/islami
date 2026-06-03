@@ -17,8 +17,9 @@ class SectionAzkar extends StatelessWidget {
           TextManager.azkar,
           style: Styles.textStyle18.copyWith(color: ColorManager.whiteColor),
         ),
-        SizedBox(height: HieghtManager.h40),
+        SizedBox(height: HieghtManager.h20),
         RowOfAskar(),
+        SizedBox(height: HieghtManager.h20),
       ],
     );
   }

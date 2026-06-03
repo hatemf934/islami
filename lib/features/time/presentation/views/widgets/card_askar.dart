@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/utils/color_manager.dart';
-import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/raduis_manager.dart';
 import 'package:islami/core/utils/width_manager.dart';
 import 'package:islami/features/time/presentation/views/widgets/body_of_card_askar.dart';
@@ -17,11 +16,13 @@ class CardAskar extends StatelessWidget {
   final Function() onTap;
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: WidthManager.w180,
-        height: HieghtManager.h260,
+        width: screenWidth * 0.42,
+        height: screenHeight * 0.25,
         decoration: BoxDecoration(
           color: ColorManager.transmentColor,
           borderRadius: BorderRadius.circular(RaduisManager.raduis20),

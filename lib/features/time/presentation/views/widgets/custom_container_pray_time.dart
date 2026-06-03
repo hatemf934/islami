@@ -23,7 +23,6 @@ class CustomContanierPrayTime extends StatelessWidget {
         ListViewCardPray(),
         SizedBox(height: HieghtManager.h30),
         RowNextPray(nextPray: nextPray),
-        SizedBox(height: HieghtManager.h15),
       ],
     );
   }

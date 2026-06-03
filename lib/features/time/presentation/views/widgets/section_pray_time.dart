@@ -16,50 +16,57 @@ class SectionPrayTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: HieghtManager.h20),
-        Center(
-          child: BlocBuilder<DatePrayCubit, DatePrayState>(
-            builder: (context, state) {
-              if (state is DatePrayLoading) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: ColorManager.primayColor,
-                  ),
-                );
-              } else if (state is DatePraySucsses) {
-                return FutureBuilder<String>(
-                  future: getRemainingTime(
-                    state.timingModel[0].timing,
-                    prayNames,
-                  ),
-                  builder: (context, snapshot) {
-                    String remainingTime = snapshot.data ?? "--:--";
-                    return Stack(
-                      children: [
-                        CustomContainerDate(timeModel: state.timeModel),
-                        SvgPicture.asset(AssetsManager.timeContaier),
-                        Positioned(
-                          left: PaddingManager.p40,
-                          right: PaddingManager.p40,
-
-                          child: CustomContanierPrayTime(
-                            timeModel: state.timeModel,
-                            nextPray: remainingTime,
+    final screenheight = MediaQuery.of(context).size.height;
+    return SizedBox(
+      height: screenheight * 0.35,
+      child: Column(
+        children: [
+          SizedBox(height: HieghtManager.h20),
+          Center(
+            child: BlocBuilder<DatePrayCubit, DatePrayState>(
+              builder: (context, state) {
+                if (state is DatePrayLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      color: ColorManager.primayColor,
+                    ),
+                  );
+                } else if (state is DatePraySucsses) {
+                  return FutureBuilder<String>(
+                    future: getRemainingTime(
+                      state.timingModel[0].timing,
+                      prayNames,
+                    ),
+                    builder: (context, snapshot) {
+                      String remainingTime = snapshot.data ?? "--:--";
+                      return Stack(
+                        children: [
+                          CustomContainerDate(timeModel: state.timeModel),
+                          SvgPicture.asset(
+                            AssetsManager.timeContaier,
+                            height: screenheight * 0.31,
                           ),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              } else {
-                return SizedBox.shrink();
-              }
-            },
+                          Positioned(
+                            left: PaddingManager.p40,
+                            right: PaddingManager.p40,
+
+                            child: CustomContanierPrayTime(
+                              timeModel: state.timeModel,
+                              nextPray: remainingTime,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  return SizedBox.shrink();
+                }
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

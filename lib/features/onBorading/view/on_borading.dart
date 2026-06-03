@@ -46,7 +46,10 @@ class Onboarding extends StatelessWidget {
       showBackButton: true,
       back: Text(TextManager.backText),
       next: Text(TextManager.nextText),
-      done: Text(TextManager.finishText),
+      done: DefaultTextStyle.merge(
+        style: Styles.textStyle14,
+        child: Text(TextManager.finishText),
+      ),
     );
   }
 }

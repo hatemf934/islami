@@ -12,25 +12,36 @@ PageViewModel buildPageView({
   return PageViewModel(
     useScrollView: false,
     titleWidget: Image.asset(AssetsManager.titleImage),
-    bodyWidget: Column(
-      children: [
-        Image.asset(imageTitle, scale: 4.4),
-        SizedBox(height: HieghtManager.h25),
-        Text(
-          title,
-          style: Styles.textStyle25.copyWith(fontWeight: FontWeight.bold),
-        ),
-        subTitle != null
-            ? SizedBox(height: HieghtManager.h30)
-            : SizedBox.shrink(),
-        subTitle != null
-            ? Text(
-                textAlign: TextAlign.center,
-                subTitle,
-                style: Styles.textStyle18,
-              )
-            : SizedBox.shrink(),
-      ],
+    bodyWidget: LayoutBuilder(
+      builder: (context, constraints) {
+        final screenHeight = MediaQuery.of(context).size.height;
+        final screenWidth = MediaQuery.of(context).size.width;
+        return Column(
+          children: [
+            Image.asset(
+              imageTitle,
+              height: screenHeight * 0.35,
+              width: screenWidth * 0.75,
+              fit: BoxFit.contain,
+            ),
+            SizedBox(height: HieghtManager.h25),
+            Text(
+              title,
+              style: Styles.textStyle25.copyWith(fontWeight: FontWeight.bold),
+            ),
+            subTitle != null
+                ? SizedBox(height: HieghtManager.h30)
+                : SizedBox.shrink(),
+            subTitle != null
+                ? Text(
+                    textAlign: TextAlign.center,
+                    subTitle,
+                    style: Styles.textStyle18,
+                  )
+                : SizedBox.shrink(),
+          ],
+        );
+      },
     ),
   );
 }

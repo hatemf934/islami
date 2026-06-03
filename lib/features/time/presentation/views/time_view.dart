@@ -17,21 +17,22 @@ class TimeView extends StatelessWidget {
       create: (context) => DatePrayCubit()..getTimePray(),
       child: Scaffold(
         backgroundColor: ColorManager.transmentColor,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: PaddingManager.p32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Image.asset(
-                  AssetsManager.titleImage,
-                  height: HieghtManager.h170,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: PaddingManager.p32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset(
+                    AssetsManager.titleImage,
+                    height: HieghtManager.h170,
+                  ),
                 ),
-              ),
-              SectionPrayTime(),
-              SizedBox(height: HieghtManager.h20),
-              SectionAzkar(),
-            ],
+                SectionPrayTime(),
+                SectionAzkar(),
+              ],
+            ),
           ),
         ),
       ),
