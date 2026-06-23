@@ -1,5 +1,5 @@
 class RouteManager {
   RouteManager._();
-  static String onboardingRoute = 'on_boarding';
-  static String mainScreen = "main_Screen";
+  static const String onboardingRoute = 'on_boarding';
+  static const String mainScreen = "main_Screen";
 }
