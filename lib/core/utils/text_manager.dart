@@ -3,6 +3,7 @@ class TextManager {
   static const String nextText = "Next";
   static const String backText = "Back";
   static const String finishText = "Finish";
+  static const String skipText = "Skip";
   static const String onboardingTitle1 = "Welcome To Islam App";
 
   static const String onboardingTitle2 = "Welcome To Islam";

@@ -39,11 +39,13 @@ class Onboarding extends StatelessWidget {
         ),
       ),
       onDone: () {
-        Navigator.pushNamed(context, MainScreen.id);
+        Navigator.pushReplacementNamed(context, MainScreen.id);
         BlocProvider.of<GetSuraCubit>(context).getAllSuras();
       },
       dotsFlex: 4,
       showBackButton: true,
+      showSkipButton: true,
+      skip: Text(TextManager.skipText),
       back: Text(TextManager.backText),
       next: Text(TextManager.nextText),
       done: DefaultTextStyle.merge(
