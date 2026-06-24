@@ -14,8 +14,7 @@ final class GetSuraSucsses extends GetSuraState {
 final class GetSuraLoading extends GetSuraState {}
 
 final class GetSuraFailure extends GetSuraState {
-  final String error;
-  final IconData iconData;
+  final Failure failure;
 
-  GetSuraFailure({required this.error, required this.iconData});
+  GetSuraFailure({required this.failure});
 }

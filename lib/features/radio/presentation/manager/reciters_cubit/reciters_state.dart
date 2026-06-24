@@ -14,7 +14,6 @@ final class RecitersSucsses extends RecitersStateReciters {
 }
 
 final class RecitersFaliure extends RecitersStateReciters {
-  final String error;
-  final IconData iconData;
-  RecitersFaliure({required this.error, required this.iconData});
+  final Failure failure;
+  RecitersFaliure({required this.failure});
 }

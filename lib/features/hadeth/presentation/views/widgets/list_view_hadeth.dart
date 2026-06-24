@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
+import 'package:islami/core/widgets/error_view.dart';
 import 'package:islami/features/hadeth/presentation/views/manager/get_hadeth/get_hadeth_cubit.dart';
 import 'package:islami/features/hadeth/presentation/views/widgets/card_hadeth.dart';
-import 'package:islami/core/widgets/custom_failure.dart';
 
 class ListViewHadeth extends StatelessWidget {
   const ListViewHadeth({super.key});
@@ -37,9 +37,11 @@ class ListViewHadeth extends StatelessWidget {
           );
         }
         if (state is GetHadethFauilre) {
-          return CustomFailue(
-            iconData: state.iconData,
-            messageError: state.error,
+          return ErrorView(
+            failure: state.failure,
+            onRetry: () {
+              BlocProvider.of<GetHadethCubit>(context).gethadeth();
+            },
           );
         }
         return SizedBox.shrink();

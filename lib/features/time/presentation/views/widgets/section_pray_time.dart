@@ -7,6 +7,7 @@ import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/get_now_pray.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/padding_manager.dart';
+import 'package:islami/core/widgets/error_view.dart';
 import 'package:islami/features/time/presentation/views/manager/datapray/date_pray_cubit.dart';
 import 'package:islami/features/time/presentation/views/widgets/custom_container_date.dart';
 import 'package:islami/features/time/presentation/views/widgets/custom_container_pray_time.dart';
@@ -59,9 +60,14 @@ class SectionPrayTime extends StatelessWidget {
                       );
                     },
                   );
-                } else {
-                  return SizedBox.shrink();
+                } else if (state is DatePrayFaliure) {
+                  return ErrorView(
+                    failure: state.failure,
+                    onRetry: () =>
+                        BlocProvider.of<DatePrayCubit>(context).getTimePray(),
+                  );
                 }
+                return SizedBox.shrink();
               },
             ),
           ),

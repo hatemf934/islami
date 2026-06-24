@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/hadeth/data/model/hadeth_model.dart';
 import 'package:islami/features/hadeth/data/repo/hadeth_repo_implement.dart';
 import 'package:meta/meta.dart';
@@ -13,9 +14,7 @@ class GetHadethCubit extends Cubit<GetHadethState> {
     emit(GetHadethLoading());
     var result = await HadethRepoImplement().getHadeth();
     result.fold(
-      (failure) => emit(
-        GetHadethFauilre(error: failure.message, iconData: failure.icon),
-      ),
+      (failure) => emit(GetHadethFauilre(failure: failure)),
       (hadethModel) => emit(GetHadethSucsses(hadethModel: hadethModel)),
     );
   }

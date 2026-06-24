@@ -32,7 +32,7 @@ class Onboarding extends StatelessWidget {
         size: Size.fromRadius(RaduisManager.raduis4),
         activeSize: Size(WidthManager.w30, HieghtManager.h8),
         activeColor: ColorManager.primayColor,
-        color: ColorManager.grayColor,
+        color: ColorManager.greyColor,
         spacing: EdgeInsets.symmetric(horizontal: PaddingManager.p3),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(RaduisManager.raduis25),

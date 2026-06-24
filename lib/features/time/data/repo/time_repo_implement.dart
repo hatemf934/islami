@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/time/data/api_pray.dart';
 import 'package:islami/features/time/data/model/time_model.dart';
@@ -12,12 +11,14 @@ class TimeRepoImplement implements TimeRepo {
     try {
       Map<String, dynamic> dataJson = await ApiPray().getPray();
       return right(TimeModel.fromjson(dataJson));
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on TypeError catch (e) {
+      return Left(GeneralFailure.fromException(e));
+    } on FormatException catch (e) {
+      return Left(GeneralFailure.fromException(e));
     } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      } else {
-        return Left(ServerFailure(Icons.error, message: e.toString()));
-      }
+      return Left(GeneralFailure.fromException(e));
     }
   }
 
@@ -28,12 +29,14 @@ class TimeRepoImplement implements TimeRepo {
       List<TimingModel> timingModel = [];
       timingModel.add(TimingModel.fromjson(dataJson["timings"]));
       return right(timingModel);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on TypeError catch (e) {
+      return Left(GeneralFailure.fromException(e));
+    } on FormatException catch (e) {
+      return Left(GeneralFailure.fromException(e));
     } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      } else {
-        return Left(ServerFailure(Icons.error, message: e.toString()));
-      }
+      return Left(GeneralFailure.fromException(e));
     }
   }
 }

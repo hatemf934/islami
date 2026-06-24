@@ -14,7 +14,6 @@ final class RadioSucsses extends RadioStateRadio {
 }
 
 final class RadioFaliure extends RadioStateRadio {
-  final String error;
-  final IconData iconData;
-  RadioFaliure({required this.error, required this.iconData});
+  final Failure failure;
+  RadioFaliure({required this.failure});
 }

@@ -14,8 +14,7 @@ final class GetHadethSucsses extends GetHadethState {
 final class GetHadethLoading extends GetHadethState {}
 
 final class GetHadethFauilre extends GetHadethState {
-  final String error;
-  final IconData iconData;
+  final Failure failure;
 
-  GetHadethFauilre({required this.error, required this.iconData});
+  GetHadethFauilre({required this.failure});
 }

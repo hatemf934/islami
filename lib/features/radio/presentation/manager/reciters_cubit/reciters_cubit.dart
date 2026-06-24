@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/radio/data/model/reciters_model.dart';
 import 'package:islami/features/radio/data/repo/radio_repo_implement.dart';
 
@@ -12,7 +13,7 @@ class RecitersCubit extends Cubit<RecitersStateReciters> {
     var result = await RadioRepoImplement().getAllReciters();
     result.fold(
       (fauilre) {
-        emit(RecitersFaliure(error: fauilre.message, iconData: fauilre.icon));
+        emit(RecitersFaliure(failure: fauilre));
       },
       (listReciters) {
         emit(RecitersSucsses(recitersList: listReciters));

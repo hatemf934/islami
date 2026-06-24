@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/radio/data/model/radio_model.dart';
 import 'package:islami/features/radio/data/model/reciters_model.dart';
@@ -23,11 +22,14 @@ class RadioRepoImplement implements RadioRepo {
       }
 
       return Right(radioList);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on TypeError catch (e) {
+      return Left(GeneralFailure.fromException(e));
+    } on FormatException catch (e) {
+      return Left(GeneralFailure.fromException(e));
     } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(Icons.error, message: e.toString()));
+      return Left(GeneralFailure.fromException(e));
     }
   }
 
@@ -65,11 +67,14 @@ class RadioRepoImplement implements RadioRepo {
       }
 
       return Right(reciterList);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on TypeError catch (e) {
+      return Left(GeneralFailure.fromException(e));
+    } on FormatException catch (e) {
+      return Left(GeneralFailure.fromException(e));
     } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(Icons.error, message: e.toString()));
+      return Left(GeneralFailure.fromException(e));
     }
   }
 }

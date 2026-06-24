@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/time/data/model/time_model.dart';
 import 'package:islami/features/time/data/repo/time_repo_implement.dart';
 
@@ -18,14 +18,12 @@ class DatePrayCubit extends Cubit<DatePrayState> {
     var resultTiming = results[1];
     resultTime.fold(
       (failure) {
-        emit(DatePrayFaliure(error: failure.message, iconData: failure.icon));
+        emit(DatePrayFaliure(failure: failure));
       },
       (timeModel) {
         resultTiming.fold(
           (failure) {
-            emit(
-              DatePrayFaliure(error: failure.message, iconData: failure.icon),
-            );
+            emit(DatePrayFaliure(failure: failure));
           },
           (timingModel) {
             emit(

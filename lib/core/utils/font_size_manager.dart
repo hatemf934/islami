@@ -11,5 +11,6 @@ class FontSizeManager {
   static double font28 = 28.sp;
   static double font30 = 30.sp;
   static double font45 = 45.sp;
+  static double font64 = 64.sp;
   static double font70 = 70.sp;
 }

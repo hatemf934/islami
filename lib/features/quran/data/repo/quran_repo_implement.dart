@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/core/api_class.dart';
 import 'package:islami/core/error/faliure.dart';
@@ -37,11 +36,14 @@ class QuranRepoImplement extends QuranRepo {
         );
       }
       return right(suras);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on TypeError catch (e) {
+      return Left(GeneralFailure.fromException(e));
+    } on FormatException catch (e) {
+      return Left(GeneralFailure.fromException(e));
     } catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(Icons.error, message: e.toString()));
+      return Left(GeneralFailure.fromException(e));
     }
   }
 }

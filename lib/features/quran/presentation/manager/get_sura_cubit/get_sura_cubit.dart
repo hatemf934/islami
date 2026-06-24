@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/core/error/faliure.dart';
 import 'package:islami/features/quran/data/model/model_sura.dart';
 import 'package:islami/features/quran/data/repo/quran_repo_implement.dart';
 
@@ -12,7 +13,7 @@ class GetSuraCubit extends Cubit<GetSuraState> {
     var result = await QuranRepoImplement().getAllSuraData();
     result.fold(
       (failre) {
-        emit(GetSuraFailure(error: failre.message, iconData: failre.icon));
+        emit(GetSuraFailure(failure: failre));
       },
       (suras) {
         emit(GetSuraSucsses(modelSura: suras));

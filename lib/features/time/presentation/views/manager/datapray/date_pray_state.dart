@@ -16,8 +16,6 @@ final class DatePraySucsses extends DatePrayState {
 }
 
 final class DatePrayFaliure extends DatePrayState {
-  final String error;
-  final IconData iconData;
-
-  DatePrayFaliure({required this.error, required this.iconData});
+  final Failure failure;
+  DatePrayFaliure({required this.failure});
 }
