@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/core/utils/assets_manager.dart';
 import 'package:islami/core/utils/color_manager.dart';
 import 'package:islami/core/utils/font_icon_manager.dart';
 import 'package:islami/core/utils/hieght_manager.dart';
 import 'package:islami/core/utils/styles.dart';
-import 'package:islami/core/utils/text_manager.dart';
-import 'package:islami/features/sepha/presentation/manager/sepha_cubit/sepha_cubit.dart';
 
 class SephaImageSection extends StatefulWidget {
   const SephaImageSection({super.key, required this.textSepha});
@@ -19,6 +16,7 @@ class SephaImageSection extends StatefulWidget {
 class _SephaImageSectionState extends State<SephaImageSection>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
+  int indexSepha = 0;
   @override
   void initState() {
     animationController = AnimationController(
@@ -60,34 +58,26 @@ class _SephaImageSectionState extends State<SephaImageSection>
             SizedBox(height: HieghtManager.h60),
             TextButton(
               onPressed: () {
-                BlocProvider.of<SephaCubit>(context).numberOfSepha();
+                setState(() {
+                  indexSepha += 1;
+                });
                 animationController.forward(from: 0);
               },
               child: Text(widget.textSepha, style: Styles.textStyle45),
             ),
-            BlocBuilder<SephaCubit, SephaState>(
-              builder: (context, state) {
-                return state is SephaOnTap
-                    ? Text("${state.numberOfSepha}", style: Styles.textStyle45)
-                    : Text(TextManager.zeroText, style: Styles.textStyle45);
-              },
-            ),
-            BlocBuilder<SephaCubit, SephaState>(
-              builder: (context, state) {
-                return state is SephaOnTap
-                    ? IconButton(
-                        onPressed: () {
-                          BlocProvider.of<SephaCubit>(context).resetSepha();
-                        },
-                        icon: Icon(
-                          Icons.restart_alt,
-                          color: ColorManager.primayColor,
-                          size: FontIconManager.icon45,
-                        ),
-                      )
-                    : Container();
-              },
-            ),
+            Text(indexSepha.toString(), style: Styles.textStyle45),
+            indexSepha != 0
+                ? IconButton(
+                    onPressed: () => setState(() {
+                      indexSepha = 0;
+                    }),
+                    icon: Icon(
+                      Icons.restart_alt,
+                      color: ColorManager.primayColor,
+                      size: FontIconManager.icon45,
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ],
